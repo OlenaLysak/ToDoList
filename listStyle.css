@@ -1,0 +1,66 @@
+div, body {
+    display: flex;
+}
+body {
+    background: lightgray;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+}
+.input-wrapper {
+    width: 600px;
+    height: 60px;
+    border: solid 1px gray;
+}
+#toDoInput {
+    width: 100%;
+    padding-left: 50px;
+    border: none;
+    font-size: 26px;
+}
+.navigation-bar {
+    width: 600px;
+    height: 40px;
+    border: solid 1px gray;
+    border-top: none;
+    justify-content: center;
+    background-color: white
+}
+.nav-button {
+    color: grey;
+    padding: 5px;
+    margin: 5px;
+/*    border: lightgray solid 1px;
+    border-radius: 4px;*/
+    height: 15px;
+}
+.item {
+    width: 600px;
+    height: 50px;
+    border: solid 1px gray;
+    background-color: white;
+    align-items: center;
+    font-size: 23px;
+    border-top: none;
+}
+#list {
+    flex-direction: column;
+}
+.checkbox {
+    width: 10%;
+}
+.task {
+    flex-grow: 1;
+}
+.x-button {
+    width: 10%;
+    color: gray;
+    font-family: "Comic Sans MS";
+    display: none;
+    cursor: pointer;
+}
+.active {
+    border: solid 1px grey;
+    border-radius: 3px;
+}
