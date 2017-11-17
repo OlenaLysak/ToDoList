@@ -8,21 +8,35 @@ body {
     justify-content: center;
     padding-top: 100px;
 }
+.global-wrapper {
+    flex-direction: column;
+    box-shadow: grey 2px 3px 3px 2px;
+}
 .input-wrapper {
     width: 600px;
     height: 60px;
-    border: solid 1px gray;
+    border: solid 1px lightgray;
+    background-color: white;
+    color: grey;
+}
+#check-all {
+    width: 10%;
+    align-items: center;
+    justify-content: center;
+    transform:scale(2,1);
+    font-size: 24px;
+    padding-bottom: 15px;
 }
 #toDoInput {
     width: 100%;
-    padding-left: 50px;
+    padding-left: 10px;
     border: none;
     font-size: 26px;
 }
 .navigation-bar {
     width: 600px;
     height: 40px;
-    border: solid 1px gray;
+    border: solid 1px lightgray;
     border-top: none;
     justify-content: center;
     background-color: white
@@ -38,7 +52,7 @@ body {
 .item {
     width: 600px;
     height: 50px;
-    border: solid 1px gray;
+    border: solid 1px lightgray;
     background-color: white;
     align-items: center;
     font-size: 23px;
@@ -59,9 +73,9 @@ body {
     font-family: "Comic Sans MS";
     display: none;
     cursor: pointer;
+    justify-content: center;
 }
 .active {
-    border: solid 1px grey;
+    border: solid 1px lightgrey;
     border-radius: 3px;
 }
-/* kitty */
