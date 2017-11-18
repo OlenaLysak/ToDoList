@@ -1,12 +1,6 @@
 $(document).ready(function () {
 
-    $("#toDoInput").keypress(function (event) {
-        if (event.which === 13) {
-            addListItem();
-            $('#toDoInput').val('')
-        }
-
-    });
+    $("#toDoInput").keypress(keyPresHandler);
 
     $(".navigation-bar").css('display', 'none');
 
@@ -55,9 +49,18 @@ $(document).ready(function () {
         });
     });
 
+    $('#check-all').click(toggleAll);
     //addTestItems();
-
+    //checkItem($('.item').get(0));
+    //uncheckItem($('.item').get(1))
 });
+
+function keyPresHandler(event) {
+    if (event.which === 13) {
+        addListItem();
+        $('#toDoInput').val('')
+    }
+}
 
 function addListItem(content) {
     var itemNode = $("<div>").addClass('item');
@@ -86,18 +89,7 @@ function addListItem(content) {
 
     $(".navigation-bar").css('display', 'flex');
 
-    checkbox.change(function (currVal) {
-        var currVal = $(this).is(':checked');
-        if (currVal) {
-            itemNode.detach();
-            itemValue.css('text-decoration', 'line-through');
-            $('#list').append(itemNode)
-        } else {
-            itemNode.detach();
-            itemValue.css('text-decoration', 'none');
-            $('#list').prepend(itemNode)
-        }
-    });
+    checkbox.change(()=> toggleItem(itemNode));
 
     $('#list').append(itemNode);
     return itemNode
@@ -109,3 +101,37 @@ function addTestItems() {
     addListItem('');
     addListItem('a').find("input").prop('checked', true).change();
 }
+
+function toggleAll() {
+    var items = $('.item');
+    var uncheckedItems = $('.checkbox:not(:checked)');
+    if (uncheckedItems.length) {
+        items.each(index => checkItem(items[index]))
+    } else {
+        items.each(index => uncheckItem(items[index]))
+    }
+}
+
+function checkItem(itemNode) {
+    $(itemNode).find('input').prop('checked', true);
+    $(itemNode).find(".task").css('text-decoration', 'line-through');
+    $(itemNode).detach();
+    $('#list').append(itemNode);
+}
+
+function uncheckItem(itemNode) {
+    $(itemNode).find('input').prop('checked', false);
+    $(itemNode).find(".task").css('text-decoration', 'none');
+    $(itemNode).detach();
+    $('#list').prepend(itemNode);
+}
+
+function toggleItem(itemNode) {
+    var currVal = $(itemNode).find("input").is(':checked');
+    if (currVal) {
+        checkItem(itemNode)
+    } else {
+        uncheckItem(itemNode)
+    }
+}
+

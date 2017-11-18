@@ -10,7 +10,7 @@ body {
 }
 .global-wrapper {
     flex-direction: column;
-    box-shadow: grey 2px 3px 3px 2px;
+    box-shadow: gray 2px 2px 10px 2px;
 }
 .input-wrapper {
     width: 600px;
@@ -26,6 +26,7 @@ body {
     transform:scale(2,1);
     font-size: 24px;
     padding-bottom: 15px;
+    cursor: pointer;
 }
 #toDoInput {
     width: 100%;
