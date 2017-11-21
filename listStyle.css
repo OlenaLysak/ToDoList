@@ -40,14 +40,13 @@ body {
     border: solid 1px lightgray;
     border-top: none;
     justify-content: center;
-    background-color: white
+    background-color: white;
+    position: relative;
 }
 .nav-button {
     color: grey;
     padding: 5px;
     margin: 5px;
-/*    border: lightgray solid 1px;
-    border-radius: 4px;*/
     height: 15px;
 }
 .item {
@@ -79,4 +78,14 @@ body {
 .active {
     border: solid 1px lightgrey;
     border-radius: 3px;
+}
+.items-left {
+    color: grey;
+    position: absolute;
+    left: 20px;
+    flex-direction: row;
+    align-self: center;
+}
+#amount{
+    margin-right: 3px;
 }

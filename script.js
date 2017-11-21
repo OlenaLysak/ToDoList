@@ -50,9 +50,11 @@ $(document).ready(function () {
     });
 
     $('#check-all').click(toggleAll);
+
     //addTestItems();
-    //checkItem($('.item').get(0));
-    //uncheckItem($('.item').get(1))
+
+    $('#amount').text(refreshItemLeft);
+
 });
 
 function keyPresHandler(event) {
@@ -74,6 +76,7 @@ function addListItem(content) {
         .addClass('x-button')
         .click(() => {
             itemNode.remove();
+            $('#amount').text(refreshItemLeft);
             if (!$(".item").length) {
                 $(".navigation-bar").css('display', 'none')
             }
@@ -92,6 +95,9 @@ function addListItem(content) {
     checkbox.change(()=> toggleItem(itemNode));
 
     $('#list').append(itemNode);
+
+    $('#amount').text(refreshItemLeft);
+
     return itemNode
 }
 
@@ -117,6 +123,7 @@ function checkItem(itemNode) {
     $(itemNode).find(".task").css('text-decoration', 'line-through');
     $(itemNode).detach();
     $('#list').append(itemNode);
+    $('#amount').text(refreshItemLeft);
 }
 
 function uncheckItem(itemNode) {
@@ -124,6 +131,7 @@ function uncheckItem(itemNode) {
     $(itemNode).find(".task").css('text-decoration', 'none');
     $(itemNode).detach();
     $('#list').prepend(itemNode);
+    $('#amount').text(refreshItemLeft);
 }
 
 function toggleItem(itemNode) {
@@ -133,5 +141,10 @@ function toggleItem(itemNode) {
     } else {
         uncheckItem(itemNode)
     }
+}
+
+function refreshItemLeft() {
+    var itemsLeft = $('.checkbox:not(:checked)');
+    return itemsLeft.length
 }
 
